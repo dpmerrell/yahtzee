@@ -9,20 +9,15 @@ The algorithm assumes "vanilla" rules. It attains an average score of ~230 point
 
 ## Installation
 
-Clone the repository:
-
-`$ git clone git@github.com:dpmerrell/yahtzee.git`
-
 Make sure you have python >= 3.8.
 I recommend using a virtual environment:
 
 `$ source my_py38_env`
 
-Install via pip:
+Install the `yahtzee_solve` project from PyPI, via pip:
 
 ```
-(my_py38_env)$ cd yahtzee
-(my_py38_env)$ pip install .
+(my_py38_env)$ pip install yahtzee_solve
 ```
 
 Congratulations! The `yahtzee` package and `play_yahtzee` command line tool are now installed.
