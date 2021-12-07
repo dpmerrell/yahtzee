@@ -1,34 +1,7 @@
 
 
 def compute_payoff(action, dice_state):
-
-    if action == 0:
-        return ones_payoff(dice_state)
-    if action == 1:
-        return twos_payoff(dice_state)
-    if action == 2:
-        return threes_payoff(dice_state)
-    if action == 3:
-        return fours_payoff(dice_state)
-    if action == 4:
-        return fives_payoff(dice_state)
-    if action == 5:
-        return sixes_payoff(dice_state)
-    if action == 6:
-        return three_of_a_kind_payoff(dice_state)
-    if action == 7:
-        return four_of_a_kind_payoff(dice_state)
-    if action == 8:
-        return full_house_payoff(dice_state)
-    if action == 9:
-        return small_straight_payoff(dice_state)
-    if action == 10:
-        return large_straight_payoff(dice_state)
-    if action == 11:
-        return yahtzee_payoff(dice_state)
-    if action == 12:
-        return chance_payoff(dice_state)
-
+    return PAYOFF_LS[action][1](dice_state)
 
 def ones_payoff(dice_state):
     return dice_state[0]
@@ -98,5 +71,21 @@ def yahtzee_payoff(dice_state):
 
 def chance_payoff(dice_state):
     return sum((i+1)*count for i, count in enumerate(dice_state))
+
+
+PAYOFF_LS = [("ones", ones_payoff),
+             ("twos", twos_payoff),
+             ("threes", threes_payoff),
+             ("fours", fours_payoff),
+             ("fives", fives_payoff),
+             ("sixes", sixes_payoff),
+             ("three of a kind", three_of_a_kind_payoff),
+             ("four of a kind", four_of_a_kind_payoff),
+             ("full house", full_house_payoff),
+             ("small straight", small_straight_payoff),
+             ("large straight", large_straight_payoff),
+             ("Yahtzee", yahtzee_payoff),
+             ("chance", chance_payoff)
+            ]
 
 

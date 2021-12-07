@@ -30,16 +30,17 @@ def solve_turn(game_state, game_state_values):
         v_roll = u_roll+1
         if u_roll < 3: # (only consider these if we haven't already rolled three times.)
             for substate in it.dice_substate_iter(u_dice):
-                #print("\t\t", substate)
-                value = 0.0
-                # Loop over possible outcomes
-                for new_roll in it.dice_state_iter(remaining_dice(substate, 5), 6):
-                    v_dice = add_dice_states(substate, new_roll)
-                    p = dice_state_probability(new_roll)
-                    value += p * turn_values[(v_roll, v_dice)]
-                if value > best_value:
-                    best_value = value
-                    best_action = action
+                if substate != u_dice:
+                    value = 0.0
+                    # Loop over possible outcomes
+                    for new_roll in it.dice_state_iter(remaining_dice(substate, 5), 6):
+                        v_dice = add_dice_states(substate, new_roll)
+                        p = dice_state_probability(new_roll)
+                        value += p * turn_values[(v_roll, v_dice)]
+
+                    if value > best_value:
+                        best_value = value
+                        best_action = substate
 
         # "payoff" actions
         for action in it.payoff_action_iter(game_state):
@@ -47,11 +48,6 @@ def solve_turn(game_state, game_state_values):
             # outcome is deterministic for these actions
             next_game_state = game_state[:action] + (True,) + game_state[action+1:]
             value = compute_payoff(action, u_dice) + game_state_values[next_game_state]
-            if game_state[10] == False and u_dice == (1,1,1,1,1):
-                print("LONG STRAIGHT", action)
-                print("\tNEXT GAME STATE", next_game_state)
-                print("\tPAYOFF", compute_payoff(action, u_dice))
-                print("\tNEXT STATE VALUE", game_state_values[next_game_state])
 
             if value > best_value:
                 best_value = value

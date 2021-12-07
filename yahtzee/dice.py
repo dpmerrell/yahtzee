@@ -32,7 +32,7 @@ tuple of dice.
 def state_to_dice(state_tuple):
 
     dice = ()
-    for i, count in enumerate(state_vec):
+    for i, count in enumerate(state_tuple):
         dice += ((i+1,)*count)
     
     return dice
@@ -68,5 +68,11 @@ def add_dice_states(state_a, state_b):
 
     return tuple(a + state_b[i] for i, a in enumerate(state_a))
 
+
+"""
+Return the difference of two states.
+"""
+def subtract_dice_states(state_a, state_b):
+    return tuple(a - state_b[i] for i, a in enumerate(state_a))
 
 
