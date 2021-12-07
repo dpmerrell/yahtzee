@@ -1,7 +1,11 @@
 # yahtzee
 A Yahtzee-solving python package and command line tool.
 
-The algorithm is mathematically guaranteed to have the best strategy. That is, it maximizes expected score.
+The algorithm is mathematically guaranteed to have the best strategy. That is, it maximizes expected score for a single game of Yahtzee.
+
+The command line tool (`play_yahtzee`) guides you through a game and advises you on the best moves to make.
+
+The algorithm assumes "vanilla" rules. It attains an average score of ~230 points.
 
 ## Installation
 
@@ -63,3 +67,10 @@ It turns out Yahtzee's state space has an interesting structure that makes it ec
 This design strikes a balance between memory and computation. A very small number of expected values are stored, but some computation is required during the game.
 
 (In a fully automated setting where speed matters, it may be better to just store the entire policy.)
+
+
+## Legal stuff
+
+This software is distributed under an MIT license, see LICENSE.txt.
+
+The name "Yahtzee" may or may not be trademarked. I don't know, Hasbro can get in touch with me if they have problems with what I'm doing
