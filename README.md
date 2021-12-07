@@ -1,7 +1,7 @@
 # yahtzee
 A Yahtzee-solving python package and command line tool.
 
-It is mathematically guaranteed to have the best strategy -- the algorithm maximizes expected score.
+The algorithm is mathematically guaranteed to have the best strategy. That is, it maximizes expected score.
 
 ## Installation
 
