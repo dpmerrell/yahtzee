@@ -1,7 +1,7 @@
 
 
-from payoffs import compute_payoff
-import dice
+from yahtzee.payoffs import compute_payoff
+from yahtzee.dice import dice_to_state, state_to_dice
 
 class InteractiveGame:
     
@@ -29,7 +29,7 @@ class InteractiveGame:
 
             # Roll the dice
             dice_ls = self.roll_dice(action=action)
-            self.turn_state = (roll + 1, dice.dice_to_state(dice_ls))
+            self.turn_state = (roll + 1, dice_to_state(dice_ls))
         else:
             assert isinstance(action, int)
 
@@ -43,7 +43,7 @@ class InteractiveGame:
             if sum(action) == 5:
                 print_str = "\tRoll all of your dice! "
             else:
-                rolled_dice = [str(d) for d in dice.state_to_dice(action)]
+                rolled_dice = [str(d) for d in state_to_dice(action)]
 
                 print_str = "\tRe-roll the following dice: {}. ".format(", ".join(rolled_dice))
 
@@ -63,7 +63,7 @@ class InteractiveGame:
 
 
     def start_turn(self):
-        self.turn_state = (1, dice.dice_to_state(self.roll_dice()))
+        self.turn_state = (1, dice_to_state(self.roll_dice()))
 
 
     def end_turn(self, action):

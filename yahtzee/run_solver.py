@@ -1,11 +1,11 @@
 
 import pickle as pkl
-import solve
+from yahtzee.solve import solve_game
 
 
 if __name__=="__main__":
 
-    game_state_values = solve.solve_game()
+    game_state_values = solve_game()
 
     pkl.dump(game_state_values, open("game_state_values.pkl", "wb"))
 

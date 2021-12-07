@@ -1,7 +1,7 @@
 
-from game_player import OptimalPlayer
-from game import InteractiveGame
-from payoffs import PAYOFF_LS
+from yahtzee.game_player import OptimalPlayer
+from yahtzee.game import InteractiveGame
+from yahtzee.payoffs import PAYOFF_LS
 import pickle as pkl
 
 
@@ -38,7 +38,7 @@ def play_game(player, game, verbose=True):
         print("Game is finished!") 
         print(make_score_card(game.history))
 
-    return game_history
+    return game.history
 
 
 def make_score_card(player_history):
@@ -59,15 +59,19 @@ def make_score_card(player_history):
     return scorecard
 
 
-if __name__=="__main__":
+def play_interactive_game():
 
     # Initialize an optimal player
-    game_state_values = pkl.load(open("game_state_values.pkl","rb"))
-    player = OptimalPlayer(game_state_values)
+    player = OptimalPlayer()
     
     # Initialize the game
     game = InteractiveGame()
 
     play_game(player, game)
+
+
+if __name__=="__main__":
+
+    play_interactive_game()
 
 

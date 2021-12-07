@@ -1,9 +1,9 @@
 
 
-import iterators as it
+import yahtzee.iterators as it
 from math import inf
-from payoffs import compute_payoff
-from dice import add_dice_states, dice_state_probability
+from yahtzee.payoffs import compute_payoff
+from yahtzee.dice import add_dice_states, dice_state_probability
 
 
 def remaining_dice(dice_state, n_dice):
