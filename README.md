@@ -5,7 +5,7 @@ The algorithm is mathematically guaranteed to have the best strategy. That is, i
 
 The command line tool (`play_yahtzee`) guides you through a game and advises you on the best moves to make.
 
-The algorithm assumes "vanilla" rules. It attains an average score of ~230 points.
+The algorithm assumes "vanilla" rules. It attains an average score of 229.638 points.
 
 ## Installation
 
