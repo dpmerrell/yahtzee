@@ -1,7 +1,7 @@
 # yahtzee
 A Yahtzee-solving python package and command line tool.
 
-The algorithm is mathematically guaranteed to have the best strategy. That is, it maximizes expected score for a single game of Yahtzee.
+The algorithm yields the mathematically-guaranteed optimal strategy. That is, it maximizes expected score for a single game of Yahtzee.
 
 The command line tool (`play_yahtzee`) guides you through a game and advises you on the best moves to make.
 
@@ -50,8 +50,8 @@ The source code is small -- look through it for details.
 Yahtzee is a [Markov Decision Process](https://en.wikipedia.org/wiki/Markov_decision_process).
 It has convenient properties that make it straightforward to solve.
 
-The solver uses dynamic programming to iterate through every possible state and action in a game of Yahtzee.
-For each state, the algorithm computes the maximal expected score (subject to the game's randomness), and the corresponding action.
+The solver uses dynamic programming to compute the best action for every possible state in a game of Yahtzee.
+It iterates through every possible state and finds the action yielding maximal expected score (subject to the game's randomness).
 The algorithm stores these expected scores and optimal actions in a pair of tables.
 The table of actions is called the _policy_.
 
