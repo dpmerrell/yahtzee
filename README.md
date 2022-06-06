@@ -14,7 +14,7 @@ I recommend using a virtual environment:
 
 `$ source my_py38_env`
 
-Install the `yahtzee_solve` project from PyPI, via pip:
+Install the [`yahtzee_solve` project](https://pypi.org/project/yahtzee-solve/) from PyPI, via pip:
 
 ```
 (my_py38_env)$ pip install yahtzee_solve
