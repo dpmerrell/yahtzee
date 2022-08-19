@@ -1,11 +1,13 @@
 # yahtzee
 A Yahtzee-solving python package and command line tool.
 
-The algorithm yields the mathematically-guaranteed optimal strategy. That is, it maximizes expected score for a single game of Yahtzee.
+The algorithm yields the mathematically-guaranteed optimal strategy*. That is, it maximizes expected score for a single game of Yahtzee.
 
 The command line tool (`play_yahtzee`) guides you through a game and advises you on the best moves to make.
 
 The algorithm assumes "vanilla" rules. It attains an average score of 229.638 points.
+
+***Important caveat**: the algorithm does not account for the 35-point upper section bonus. In practice it usually gets the bonus. Even when it doesn't, it attains a very high score (the 229.683 average excludes the bonus!). A future version may account for the bonus, but it would significantly increase the size of the state space.
 
 ## Installation
 
