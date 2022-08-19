@@ -16,10 +16,10 @@ I recommend using a virtual environment:
 
 `$ source my_py38_env`
 
-Install the [`yahtzee_solve` project](https://pypi.org/project/yahtzee-solve/) from PyPI, via pip:
+Install the [`yahtzee-solve` project](https://pypi.org/project/yahtzee-solve/) from PyPI, via pip:
 
 ```
-(my_py38_env)$ pip install yahtzee_solve
+(my_py38_env)$ pip install yahtzee-solve
 ```
 
 Congratulations! The `yahtzee` package and `play_yahtzee` command line tool are now installed.
@@ -38,12 +38,16 @@ After installation, you can run the interactive command line tool `play_yahtzee`
 ```
 The prompts will lead you through a game of Yahtzee and advise you on the best moves to make.
 
+Just enter your dice as a sequence of five numbers: E.g., `31624` or `63236`.
+
 ## Python package
 The `yahtzee` python package has the following components:
 * A dynamic programming algorithm that solves the whole game (`solve_game`, `solve_turn`)
 * Precomputed results for that algorithm (`PRECOMP_STATE_VALUES`) (you can compute those results for yourself, but it will take hours)
 * An object-oriented interface for the algorithm to interact with a game of Yahtzee (`OptimalPlayer`, `InteractiveGame`)
 * A command line script based on that interface (`play_interactive_game()`)
+
+You would only need to deal with the package if you were incorporating the solver into some larger project.
 
 The source code is small -- look through it for details.
 
